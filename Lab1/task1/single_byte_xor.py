@@ -1,6 +1,6 @@
 
 def decode_single_byte_xor(string):
-    possible_strings = (bytes([b ^ key for b in string]) for key in range(256))
+    possible_strings = (bytes([b ^ key for b in string]) for key in range(256)) 
     decoded = max(possible_strings, key=lambda s: str(s).count(' '))
 
     return decoded
