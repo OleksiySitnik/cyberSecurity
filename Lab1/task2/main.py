@@ -40,7 +40,7 @@ def get_keylength(ciphertext):
         for i in range(0, len(variants)):
             if v[i] == ciphertext[i]:
                 frequency += 1
-        print(f'{frequency}')
+        print(frequency)
     return variants
 
 
@@ -61,7 +61,12 @@ def chi_sqr(text):
 
 
 def decrypt_repeating_xor(encrypted_text_bytes, key_bytes):
-    decoded = "".join(map(chr, [byte ^ key_bytes[i % len(key_bytes)] for i, byte in enumerate(encrypted_text_bytes)]))
+    decoded = "".join(
+        map(
+            chr,
+            [byte ^ key_bytes[i % len(key_bytes)] for i, byte in enumerate(encrypted_text_bytes)]
+        )
+    )
     return decoded
 
 
